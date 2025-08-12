@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-name: Build Flutter APK
 
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-=======
 name: Build APK
 
 on:
@@ -27,12 +14,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
->>>>>>> 89d6c1ad800b95885f5dddffbd4d38462612c201
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-<<<<<<< HEAD
           flutter-version: '3.10.0'
 
       - name: Install dependencies
@@ -46,20 +31,3 @@ jobs:
         with:
           name: cashbook-offline-apk
           path: build/app/outputs/flutter-apk/app-release.apk
-=======
-          flutter-version: '3.10.5'
-
-      - name: Install dependencies
-        run: flutter pub get
-        working-directory: cashbook_offline_app
-
-      - name: Build APK
-        run: flutter build apk --release
-        working-directory: cashbook_offline_app
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v3
-        with:
-          name: cashbook-offline-apk
-          path: cashbook_offline_app/build/app/outputs/flutter-apk/app-release.apk
->>>>>>> 89d6c1ad800b95885f5dddffbd4d38462612c201
